@@ -15,8 +15,7 @@ export class UserService {
     this.client = client;
   }
 
-  async getUsers() {
-    console.log(UserService.client);
-    return UserService.client.native.get("/users");
+  async getUser(params: any) {
+    return UserService.client.native.get("/user", { params });
   }
 }

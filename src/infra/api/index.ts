@@ -1,7 +1,7 @@
 import MockAdapter from "axios-mock-adapter";
 
 import axios, { AxiosInstance } from "axios";
-import { MockUsers } from "./mock.db";
+import { MockUsers, User } from "./mock.db";
 
 export class ApiClient {
   private static _instance: ApiClient;
@@ -23,11 +23,13 @@ export class ApiClient {
   static initMocks() {
     if (!this._instance) this._instance = new ApiClient();
 
-    this.mockAdapter.onGet("/users").reply(200, {
-      data: MockUsers,
-      meta: {
-        count: MockUsers.length,
-      },
-    });
+    this.mockAdapter
+      .onGet("/user", { params: { email: "anthony", password: "123456" } })
+      .reply(200, {
+        data: User,
+        meta: {
+          count: MockUsers.length,
+        },
+      });
   }
 }
