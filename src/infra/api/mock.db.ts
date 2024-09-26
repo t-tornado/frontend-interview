@@ -120,3 +120,12 @@ export const MockUsers = [
     address: "357 Elm St, Paris",
   },
 ];
+
+export const User = {
+  uuid: "f23e4567-e89b-12d3-a456-426614174014",
+  firstName: "Anthony",
+  lastName: "Omp",
+  age: 35,
+  nationality: "Canadian",
+  address: "357 Elm St, Paris",
+};
